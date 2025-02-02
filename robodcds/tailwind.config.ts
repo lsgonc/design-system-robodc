@@ -8,9 +8,20 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "default": "var(--font-inter)",
+        "logo": "var(--font-roboto)",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        defaultblue: "var(--default-blue)",
+        defaultgrey: "var(--default-grey)",
+        bluehover: "var(--blue-hover)",
+        lightblue: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+        },
       },
     },
   },
