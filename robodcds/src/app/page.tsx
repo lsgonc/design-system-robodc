@@ -1,10 +1,13 @@
 "use client"
 
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { BsBellFill } from "react-icons/bs"
 import { IoMdHome, IoMdPerson } from "react-icons/io"
 
 export default function Home() {
+    const router = useRouter()
+
     return (
         <div className="min-h-screen flex flex-col">
             {/* Hero Section */}
@@ -23,18 +26,16 @@ export default function Home() {
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl sm:text-4xl font-bold text-defaultblue text-center mb-12">Recursos</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                        <div className="text-center border border-black rounded-md p-14 ">
-                            <h3 className="text-xl font-semibold mb-2">Biblioteca de Componentes</h3>
-                            <p className="text-gray-600">Explore os diversos componentes e ferramentas do robo.</p>
-                        </div>
-                        <div className="text-center border border-black rounded-md p-14">
-                            <h3 className="text-xl font-semibold mb-2">Comportamentos</h3>
-                            <p className="text-gray-600">Veja as principais ações e comportamentos modelados para as interações com os usuários.</p>
-                        </div>
-                        <div className="text-center border border-black rounded-md p-14">
-                            <h3 className="text-xl font-semibold mb-2">Suporte da comunidade</h3>
-                            <p className="text-gray-600">Ajude a contribuir e melhorar o design system do robo do DC.</p>
-                        </div>
+                        {[
+                            { title: "Biblioteca de Componentes", description: "Explore os diversos componentes e ferramentas do robô.", url: "/componentes/botao" },
+                            { title: "Comportamentos", description: "Veja as principais ações e comportamentos modelados para as interações com os usuários.", url: "/comportamentos"},
+                            { title: "Suporte da comunidade", description: "Ajude a contribuir e melhorar o design system do robô do DC.", url: "/contribuir" }
+                        ].map((feature, index) => (
+                            <div onClick={() => router.push(feature.url)} key={index} className="text-center border cursor-pointer border-black rounded-md p-14 transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray-100">
+                                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                                <p className="text-gray-600">{feature.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
