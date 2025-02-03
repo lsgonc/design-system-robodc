@@ -31,7 +31,7 @@ export default function Home() {
                             { title: "Comportamentos", description: "Veja as principais ações e comportamentos modelados para as interações com os usuários.", url: "/comportamentos"},
                             { title: "Suporte da comunidade", description: "Ajude a contribuir e melhorar o design system do robô do DC.", url: "/contribuir" }
                         ].map((feature, index) => (
-                            <div onClick={() => router.push(feature.url)} key={index} className="text-center border cursor-pointer border-black rounded-md p-14 transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray-100">
+                            <div onClick={() => router.push(feature.url + "#top", {scroll: true})} key={index} className="text-center border cursor-pointer border-black rounded-md p-14 transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray-100">
                                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                                 <p className="text-gray-600">{feature.description}</p>
                             </div>
